@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-cont">
+  <mat-sidenav mode="side" opened>
+    <nav>
+      <mat-list>
+        <mat-list-item>
+          <!--(click)="backgroundItemBtn = !backgroundItemBtn" [class.active]="backgroundItemBtn"-->
+          <button mat-stroked-button color="primary">
+            <span>Home</span>
+            <mat-icon aria-hidden="false" aria-label="home">home</mat-icon>
+          </button>
+        </mat-list-item>
+        <mat-list-item>
+            <button mat-stroked-button color="primary" [matMenuTriggerFor]="coursesParam">
+              <span>Courses</span>
+            <mat-icon aria-hidden="false" aria-label="home"></mat-icon>
+          </button>
+          <mat-menu #coursesParam="matMenu">
+            <button mat-menu-item color="primary">
+              <span>Add course</span>
+            </button>
+          </mat-menu>
+        </mat-list-item>
+        <mat-list-item>
+          <button mat-stroked-button color="primary">
+            <span>Progress students</span>
+            <mat-icon aria-hidden="false" aria-label="home"></mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </nav>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>main-content</mat-sidenav-content>
+</mat-sidenav-container>
