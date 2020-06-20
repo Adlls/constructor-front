@@ -1,0 +1,60 @@
+.courses-cards {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1vw;
+  justify-items: center;
+  margin: 20px 20px;
+
+
+  .progress-course {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 50%;
+    span {
+      color: gray;
+      font-size: 16px;
+    }
+  }
+
+    .type-access {
+      position: absolute;
+      display: flex;
+      bottom: 10px;
+      right: 60px;
+    }
+    .count-students {
+      position: absolute;
+      display: flex;
+      right: 10px;
+      bottom: 10px;
+
+      span {
+        margin-right: 5px;
+        color: gray;
+        font-size: 15px;
+      }
+    }
+
+  mat-card {
+    position: relative;
+    width: 330px;
+    height: 200px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
+.options-course {
+  display: flex;
+  justify-content: right;
+  button {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+}

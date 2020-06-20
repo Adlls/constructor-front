@@ -1,1 +1,27 @@
-<p>courses works!</p>
+<div class="options-course">
+  <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<section class="courses-cards">
+  <mat-card [routerLink]="['/teacher/courses', 1]">
+    <h3>Course title</h3>
+    <p>Course description</p>
+      <div class="count-students">
+        <span>5</span>
+        <mat-icon>person_outline</mat-icon>
+      </div>
+      <div class="type-access">
+        <mat-icon>lock</mat-icon>
+      </div>
+    <div class="progress-course">
+      <span>40/100</span>
+      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    </div>
+  </mat-card>
+  <mat-card>Course 2</mat-card>
+  <mat-card>Course 2</mat-card>
+
+
+</section>
+
