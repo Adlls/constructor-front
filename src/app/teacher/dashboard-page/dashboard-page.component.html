@@ -15,15 +15,15 @@
             <button
               mat-stroked-button color="primary"
               [matMenuTriggerFor]="coursesParam" >
-              <span>Courses</span>
+              <span>Курсы</span>
             <mat-icon aria-hidden="false" aria-label="home"></mat-icon>
           </button>
           <mat-menu #coursesParam="matMenu">
             <button mat-menu-item color="primary">
-              <span>Add course</span>
+              <span>Добавить курс</span>
             </button>
             <button mat-menu-item color="primary" routerLink='/teacher/courses'>
-              <span>View courses</span>
+              <span>Список курсов</span>
             </button>
           </mat-menu>
         </mat-list-item>
@@ -32,8 +32,7 @@
             mat-stroked-button color="primary"
             routerLink='/teacher/progress'
           >
-            <span>Progress students</span>
-            <mat-icon aria-hidden="false" aria-label="home"></mat-icon>
+            <span>Прогресс студентов</span>
           </button>
         </mat-list-item>
       </mat-list>

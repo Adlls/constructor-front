@@ -1,0 +1,12 @@
+.progress-courses {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  th {
+    background-color: transparent;
+  }
+
+  mat-expansion-panel {
+    margin-top: 20px;
+  }
+}

@@ -15,32 +15,36 @@ import { CoursesComponent } from './courses/courses.component';
 import { ProgressStudentsComponent } from './progress-students/progress-students.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { CourseComponent } from './course/course.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
   declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent],
-    imports: [
+  imports: [
 
-        CommonModule,
-        RouterModule.forChild([
-            {
-                path: '', component: TeacherLayoutComponent, children: [
-                    {path: 'courses', component: CoursesComponent},
-                    {path: 'courses/:id', component: CourseComponent},
-                    {path: 'progress', component: ProgressStudentsComponent}
-                ]
-            }
-        ]),
-        MatCardModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatIconModule,
-        MatListModule,
-        MatTreeModule,
-        MatButtonModule,
-        MatProgressBarModule
-    ],
+    CommonModule,
+    RouterModule.forChild([
+      {
+        path: '', component: TeacherLayoutComponent, children: [
+          {path: 'courses', component: CoursesComponent},
+          {path: 'courses/:id', component: CourseComponent},
+          {path: 'progress', component: ProgressStudentsComponent}
+        ]
+      }
+    ]),
+    MatCardModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatListModule,
+    MatTreeModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    MatTableModule,
+    MatExpansionModule
+  ],
   exports: [RouterModule, MatCardModule],
 
 })
