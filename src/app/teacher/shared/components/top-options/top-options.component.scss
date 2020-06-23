@@ -1,6 +1,14 @@
 .top-options {
   display: flex;
+  flex-direction: row;
   justify-content: right;
+
+  .back {
+    align-self: end;
+    mat-icon {
+      font-size: 38px;
+    }
+  }
 
   button {
     margin-top: 20px;

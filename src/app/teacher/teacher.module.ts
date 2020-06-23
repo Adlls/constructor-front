@@ -23,37 +23,39 @@ import { CoauthorsPopupComponent } from './course/coauthors-popup/coauthors-popu
 import { StudentsPopupComponent } from './course/students-popup/students-popup.component';
 import { TopOptionsComponent } from './shared/components/top-options/top-options.component';
 import { LessonComponent } from './lesson/lesson.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 @NgModule({
   declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent, TopOptionsComponent, LessonComponent],
-  imports: [
+    imports: [
 
-    CommonModule,
-    RouterModule.forChild([
-      {
-        path: '', component: TeacherLayoutComponent, children: [
-          { path: 'courses', component: CoursesComponent},
-          { path: 'courses/:idCourse', component: CourseComponent },
-          { path: 'courses/:idCourse/:idTopic', component: TopicComponent },
-          { path: 'courses/:idCourse/:idTopic/:idLesson', component: LessonComponent },
-          { path: 'progress', component: ProgressStudentsComponent }
-        ]
-      }
-    ]),
-    MatCardModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatIconModule,
-    MatListModule,
-    MatTreeModule,
-    MatButtonModule,
-    MatProgressBarModule,
-    MatTableModule,
-    MatExpansionModule,
-    MatDialogModule
-  ],
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: '', component: TeacherLayoutComponent, children: [
+                    {path: 'courses', component: CoursesComponent},
+                    {path: 'courses/:idCourse', component: CourseComponent},
+                    {path: 'courses/:idCourse/:idTopic', component: TopicComponent},
+                    {path: 'courses/:idCourse/:idTopic/:idLesson', component: LessonComponent},
+                    {path: 'progress', component: ProgressStudentsComponent}
+                ]
+            }
+        ]),
+        MatCardModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatMenuModule,
+        MatIconModule,
+        MatListModule,
+        MatTreeModule,
+        MatButtonModule,
+        MatProgressBarModule,
+        MatTableModule,
+        MatExpansionModule,
+        MatDialogModule,
+        MatTabsModule
+    ],
   exports: [RouterModule, MatCardModule],
 
 })
