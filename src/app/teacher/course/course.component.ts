@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import {CoauthorsComponent} from './coauthors/coauthors.component';
+import {MatDialog} from '@angular/material/dialog';
+import {CoauthorsPopupComponent} from './coauthors-popup/coauthors-popup.component';
+import {StudentsPopupComponent} from './students-popup/students-popup.component';
 
 
 
@@ -12,26 +13,23 @@ import {CoauthorsComponent} from './coauthors/coauthors.component';
 export class CourseComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
-  openDialog() {
-    const dialogRef = this.dialog.open(CoauthorsComponent);
+  openDialogCoAuthors() {
+    const dialogRef = this.dialog.open(CoauthorsPopupComponent);
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
   }
-  ngOnInit(): void {
+
+  openDialogStudents() {
+    const dialogRef = this.dialog.open(StudentsPopupComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
+  ngOnInit(): void {
+  }
 }
-/*
-@Component({
-  templateUrl: 'coauthors/coauthors.component.html'
-})
-export class DialogContentExampleDialog implements OnInit {
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: CoauthorsComponent) {}
-  ngOnInit(): void {
-  }
- }
-*/
 

@@ -23,7 +23,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ProgressStudentsComponent implements OnInit {
  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   panelOpenState = false;
-  displayedColumns: string[] = ['name',  'current_theme','current_lesson', 'progress'];
+  displayedColumns: string[] = ['name', 'current_theme','current_lesson', 'progress'];
   dataSource = ELEMENT_DATA;
   constructor() { }
 

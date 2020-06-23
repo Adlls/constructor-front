@@ -19,11 +19,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
 import { TopicComponent } from './topic/topic.component';
-import { CoauthorsComponent } from './course/coauthors/coauthors.component';
+import { CoauthorsPopupComponent } from './course/coauthors-popup/coauthors-popup.component';
+import { StudentsPopupComponent } from './course/students-popup/students-popup.component';
 
 
 @NgModule({
-  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsComponent],
+  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent],
   imports: [
 
     CommonModule,
