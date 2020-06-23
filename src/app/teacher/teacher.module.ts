@@ -14,22 +14,26 @@ import {MatButtonModule} from '@angular/material/button';
 import { CoursesComponent } from './courses/courses.component';
 import { ProgressStudentsComponent } from './progress-students/progress-students.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { CourseComponent } from './course/course.component';
+import {CourseComponent} from './course/course.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
+import { TopicComponent } from './topic/topic.component';
+import { CoauthorsComponent } from './course/coauthors/coauthors.component';
 
 
 @NgModule({
-  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent],
+  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsComponent],
   imports: [
 
     CommonModule,
     RouterModule.forChild([
       {
         path: '', component: TeacherLayoutComponent, children: [
-          {path: 'courses', component: CoursesComponent},
-          {path: 'courses/:id', component: CourseComponent},
-          {path: 'progress', component: ProgressStudentsComponent}
+          { path: 'courses', component: CoursesComponent},
+          { path: 'courses/:idCourse', component: CourseComponent },
+          { path: 'courses/:idCourse/:idTopic', component: TopicComponent},
+          { path: 'progress', component: ProgressStudentsComponent }
         ]
       }
     ]),
@@ -43,7 +47,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatButtonModule,
     MatProgressBarModule,
     MatTableModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatDialogModule
   ],
   exports: [RouterModule, MatCardModule],
 

@@ -1,3 +1,53 @@
-<section class="info-course">
-  о курсе
-</section>
+<div class="options-top-course">
+  <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<mat-card class="info-course">
+  <h3 class="title-course">Стек потоколов TCP/IP</h3>
+  <p class="description-course">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Accusantium aut beatae debitis dolores, enim error ex exercitationem explicabo facilis
+    fugiat ipsa iusto libero modi nam neque qui quisquam, tenetur voluptatum.</p>
+  <div class="param-course">
+    <ul>
+      <li>
+        <strong>Доступ:</strong>
+        <span>Публичный</span>
+      </li>
+      <li>
+        <strong> Количество подписанных студентов:</strong>
+        <span>5</span>
+      </li>
+      <li>
+        <strong>Автор курса:</strong>
+        <span>Вы</span>
+      </li>
+    </ul>
+
+
+  </div>
+</mat-card>
+
+  <div class="options-bottom-course">
+    <button mat-raised-button color="primary" (click)="openDialog()">Соавторы курса</button>
+    <button mat-raised-button color="primary" (click)="openDialog()">Студенты</button>
+  </div>
+
+<div class="topics-cards">
+  <mat-card [routerLink]="['/teacher/courses', 1, 1]">
+    <h3>IP-адресса</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, sed!</p>
+    <div class="small-info-topic">
+      <div class="author-topic">
+        <strong>Автор темы:</strong>
+        <span>Петров</span>
+      </div>
+    </div>
+
+  </mat-card>
+  <mat-card>
+    2 тема
+  </mat-card>
+</div>
+
+
