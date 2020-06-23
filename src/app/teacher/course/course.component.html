@@ -1,9 +1,5 @@
-<div class="options-top-course">
-  <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
-    <mat-icon>add</mat-icon>
-  </button>
-</div>
-<mat-card class="info-course">
+<app-top-options></app-top-options>
+<mat-card class="info-course wrapper">
   <h3 class="title-course">Стек потоколов TCP/IP</h3>
   <p class="description-course">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
     Accusantium aut beatae debitis dolores, enim error ex exercitationem explicabo facilis
@@ -23,8 +19,6 @@
         <span>Вы</span>
       </li>
     </ul>
-
-
   </div>
 </mat-card>
 
@@ -33,7 +27,7 @@
     <button mat-raised-button color="primary" (click)="openDialogStudents()">Студенты курса</button>
   </div>
 
-<div class="topics-cards">
+<section class="topics-cards wrapper">
   <mat-card [routerLink]="['/teacher/courses', 1, 1]">
     <h3>IP-адресса</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, sed!</p>
@@ -48,6 +42,6 @@
   <mat-card>
     2 тема
   </mat-card>
-</div>
+</section>
 
 

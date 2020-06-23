@@ -25,6 +25,29 @@ body {
   color: #333;
 }
 
+.wrapper {
+  margin: 15px;
+}
+
+.cards-layout {
+  margin-top: 30px;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1vw;
+  justify-items: center;
+  mat-card {
+    width: 330px;
+    height: 200px;
+    cursor: pointer;
+    transition: 0.2s;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+
 a {
   color: var(--primary-color);
   cursor: pointer;

@@ -1,5 +1,4 @@
 .info-course {
-   margin: 15px;
    padding: 30px;
   .description-course {
     width: 60%;
@@ -26,14 +25,7 @@
 }
 
 
-.options-top-course {
-  display: flex;
-  justify-content: right;
-  button {
-    margin-top: 20px;
-    margin-right: 20px;
-  }
-}
+
 .options-bottom-course {
   margin-left: 15px;
   button {
@@ -46,8 +38,7 @@
 }
 
 .topics-cards {
-  margin-left: 15px;
-  margin-top: 50px;
+  margin-top: 30px;
   position: relative;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
@@ -75,7 +66,6 @@
       margin-top: 10px;
 
     }
-
     &:hover {
       box-shadow: none;
     }

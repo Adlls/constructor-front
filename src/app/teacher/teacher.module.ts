@@ -21,10 +21,12 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { TopicComponent } from './topic/topic.component';
 import { CoauthorsPopupComponent } from './course/coauthors-popup/coauthors-popup.component';
 import { StudentsPopupComponent } from './course/students-popup/students-popup.component';
+import { TopOptionsComponent } from './shared/components/top-options/top-options.component';
+import { LessonComponent } from './lesson/lesson.component';
 
 
 @NgModule({
-  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent],
+  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent, TopOptionsComponent, LessonComponent],
   imports: [
 
     CommonModule,
@@ -33,7 +35,8 @@ import { StudentsPopupComponent } from './course/students-popup/students-popup.c
         path: '', component: TeacherLayoutComponent, children: [
           { path: 'courses', component: CoursesComponent},
           { path: 'courses/:idCourse', component: CourseComponent },
-          { path: 'courses/:idCourse/:idTopic', component: TopicComponent},
+          { path: 'courses/:idCourse/:idTopic', component: TopicComponent },
+          { path: 'courses/:idCourse/:idTopic/:idLesson', component: LessonComponent },
           { path: 'progress', component: ProgressStudentsComponent }
         ]
       }
