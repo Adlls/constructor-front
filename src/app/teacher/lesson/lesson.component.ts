@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lesson.component.scss']
 })
 export class LessonComponent implements OnInit {
-
+  targetEditType = "";
   constructor() { }
 
   ngOnInit(): void {

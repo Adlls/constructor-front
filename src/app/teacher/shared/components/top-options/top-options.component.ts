@@ -4,6 +4,11 @@ import {AddCourseComponent} from '../edit/course/add-course/add-course.component
 import {UpdateCourseComponent} from '../edit/course/update-course/update-course.component';
 import {DeleteCourseComponent} from '../edit/course/delete-course/delete-course.component';
 import {AddTopicComponent} from '../edit/topic/add-topic/add-topic.component';
+import {UpdateTopicComponent} from '../edit/topic/update-topic/update-topic.component';
+import {DeleteTopicComponent} from '../edit/topic/delete-topic/delete-topic.component';
+import {AddLessonComponent} from '../edit/lesson/add-lesson/add-lesson.component';
+import {UpdateLessonComponent} from '../edit/lesson/update-lesson/update-lesson.component';
+import {DeleteLessonComponent} from '../edit/lesson/delete-lesson/delete-lesson.component';
 
 
 function openDialog(component: any, dialog: MatDialog) {
@@ -30,10 +35,13 @@ export class TopOptionsComponent implements OnInit {
       case "course":
         openDialog(AddCourseComponent, this.dialog);
         break;
-
       case "topic":
         openDialog(AddTopicComponent, this.dialog);
         break;
+      case "lesson":
+        openDialog(AddLessonComponent, this.dialog);
+        break;
+
     }
   }
 
@@ -43,6 +51,10 @@ export class TopOptionsComponent implements OnInit {
         openDialog(UpdateCourseComponent, this.dialog);
         break;
       case "topic":
+        openDialog(UpdateTopicComponent, this.dialog);
+        break;
+      case "lesson":
+        openDialog(UpdateLessonComponent, this.dialog);
         break;
     }
   }
@@ -52,8 +64,11 @@ export class TopOptionsComponent implements OnInit {
       case "course":
         openDialog(DeleteCourseComponent, this.dialog);
         break;
-
       case "topic":
+        openDialog(DeleteTopicComponent, this.dialog);
+        break;
+      case "lesson":
+        openDialog(DeleteLessonComponent, this.dialog);
         break;
     }
   }

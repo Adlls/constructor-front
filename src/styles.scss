@@ -30,6 +30,13 @@ body {
   mat-form-field {
     width: 100%;
   }
+
+  mat-checkbox {
+    margin-top: 10px;
+  }
+  button {
+    margin-top: 15px;
+  }
 }
 
 
@@ -50,6 +57,17 @@ body {
     color: slategray;
   }
 }
+
+.options-update {
+  width: 500px;
+  mat-radio-button {
+    margin-top: 10px;
+  }
+  button {
+    margin-top: 10px;
+  }
+}
+
 
 
 .wrapper {

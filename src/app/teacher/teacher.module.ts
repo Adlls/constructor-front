@@ -37,10 +37,36 @@ import { AddTopicComponent } from './shared/components/edit/topic/add-topic/add-
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AddUsersComponent} from './shared/components/edit/add-users/add-users.component';
+import {UpdateTopicComponent} from './shared/components/edit/topic/update-topic/update-topic.component';
+import { DeleteTopicComponent } from './shared/components/edit/topic/delete-topic/delete-topic.component';
+import { AddLessonComponent } from './shared/components/edit/lesson/add-lesson/add-lesson.component';
+import { UpdateLessonComponent } from './shared/components/edit/lesson/update-lesson/update-lesson.component';
+import { DeleteLessonComponent } from './shared/components/edit/lesson/delete-lesson/delete-lesson.component';
 
 
 @NgModule({
-  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent, TopOptionsComponent, LessonComponent, AddCourseComponent, UpdateCourseComponent, DeleteCourseComponent, AddTopicComponent, AddUsersComponent, AddUsersComponent],
+  declarations: [
+    UpdateTopicComponent,
+    TeacherLayoutComponent,
+    DashboardPageComponent,
+    CoursesComponent,
+    ProgressStudentsComponent,
+    CourseComponent,
+    TopicComponent,
+    CoauthorsPopupComponent,
+    StudentsPopupComponent,
+    TopOptionsComponent,
+    LessonComponent,
+    AddCourseComponent,
+    UpdateCourseComponent,
+    DeleteCourseComponent,
+    AddTopicComponent,
+    AddUsersComponent,
+    AddUsersComponent,
+    DeleteTopicComponent,
+    AddLessonComponent,
+    UpdateLessonComponent,
+    DeleteLessonComponent],
   imports: [
 
     CommonModule,
