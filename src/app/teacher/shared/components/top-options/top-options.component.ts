@@ -1,8 +1,17 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
-import {AddCourseComponent} from '../../../edit/course/add-course/add-course.component';
-import {UpdateCourseComponent} from '../../../edit/course/update-course/update-course.component';
-import {DeleteCourseComponent} from '../../../edit/course/delete-course/delete-course.component';
+import {AddCourseComponent} from '../edit/course/add-course/add-course.component';
+import {UpdateCourseComponent} from '../edit/course/update-course/update-course.component';
+import {DeleteCourseComponent} from '../edit/course/delete-course/delete-course.component';
+import {AddTopicComponent} from '../edit/topic/add-topic/add-topic.component';
+
+
+function openDialog(component: any, dialog: MatDialog) {
+    const dialogRef = dialog.open(component);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+}
 
 @Component({
   selector: 'app-top-options',
@@ -13,19 +22,17 @@ export class TopOptionsComponent implements OnInit {
 
   @Input() targetEdit;
 
-
   constructor(public dialog: MatDialog) {}
+
 
   openDialogAdd() {
     switch (this.targetEdit) {
       case "course":
-        const dialogRef = this.dialog.open(AddCourseComponent);
-        dialogRef.afterClosed().subscribe(result => {
-          console.log(`Dialog result: ${result}`);
-        });
-       break;
+        openDialog(AddCourseComponent, this.dialog);
+        break;
 
       case "topic":
+        openDialog(AddTopicComponent, this.dialog);
         break;
     }
   }
@@ -33,10 +40,7 @@ export class TopOptionsComponent implements OnInit {
   openDialogUpdate() {
     switch (this.targetEdit) {
       case "course":
-        const dialogRef = this.dialog.open(UpdateCourseComponent);
-        dialogRef.afterClosed().subscribe(result => {
-          console.log(`Dialog result: ${result}`);
-        });
+        openDialog(UpdateCourseComponent, this.dialog);
         break;
       case "topic":
         break;
@@ -46,10 +50,7 @@ export class TopOptionsComponent implements OnInit {
   openDialogDelete() {
     switch (this.targetEdit) {
       case "course":
-        const dialogRef = this.dialog.open(DeleteCourseComponent);
-        dialogRef.afterClosed().subscribe(result => {
-          console.log(`Dialog result: ${result}`);
-        });
+        openDialog(DeleteCourseComponent, this.dialog);
         break;
 
       case "topic":

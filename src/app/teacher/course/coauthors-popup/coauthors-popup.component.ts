@@ -20,6 +20,7 @@ let coauthors: Coauthor[] = [
 export class CoauthorsPopupComponent implements OnInit {
   displayedColumns: string[] = ['name', 'position'];
   dataSource = coauthors;
+  typeUser = 'teacher';
 
   constructor() { }
 

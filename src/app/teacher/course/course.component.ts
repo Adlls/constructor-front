@@ -11,6 +11,7 @@ import {StudentsPopupComponent} from './students-popup/students-popup.component'
   styleUrls: ['./course.component.scss']
 })
 export class CourseComponent implements OnInit {
+  targetEditType = "topic";
   constructor(public dialog: MatDialog) {}
 
   openDialogCoAuthors() {

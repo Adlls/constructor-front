@@ -1,0 +1,25 @@
+<button mat-raised-button color="primary" (click)="showForm()">Добавить {{whoAdd}}</button>
+<button
+  mat-stroked-button type="button" class="close-student-form"
+  [ngStyle]="{display: viewForm ? 'inline-block' : 'none'}"
+  (click)="closeForm()"
+><mat-icon>close</mat-icon></button>
+<form class="student-form" [ngStyle]="{display: viewForm ? 'block' : 'none'}">
+  <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Имя {{whoAdd}}"
+           aria-label="Number"
+           matInput
+           [formControl]="control"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <div class="student-options-form">
+    <button mat-stroked-button color="primary" type="button" class="student-add">Добавить</button>
+    <button mat-stroked-button color="primary" type="button" class="students-save">Сохранить</button>
+  </div>
+</form>

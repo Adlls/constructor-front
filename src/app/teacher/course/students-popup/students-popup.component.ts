@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 
 
 export interface Student {
@@ -21,10 +24,14 @@ const students: Student[] = [
 export class StudentsPopupComponent implements OnInit {
   displayedColumns: string[] = ['name', 'current_theme','current_lesson', 'progress'];
   dataSource = students;
+  typeUser = "student";
 
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
+
 }
+

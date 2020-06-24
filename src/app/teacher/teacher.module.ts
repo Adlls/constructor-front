@@ -24,19 +24,23 @@ import { StudentsPopupComponent } from './course/students-popup/students-popup.c
 import { TopOptionsComponent } from './shared/components/top-options/top-options.component';
 import { LessonComponent } from './lesson/lesson.component';
 import {MatTabsModule} from '@angular/material/tabs';
-import { AddCourseComponent } from './edit/course/add-course/add-course.component';
+import { AddCourseComponent } from './shared/components/edit/course/add-course/add-course.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
-import { UpdateCourseComponent } from './edit/course/update-course/update-course.component';
+import { UpdateCourseComponent } from './shared/components/edit/course/update-course/update-course.component';
 import {MatRadioModule} from '@angular/material/radio';
-import { DeleteCourseComponent } from './edit/course/delete-course/delete-course.component';
+import { DeleteCourseComponent } from './shared/components/edit/course/delete-course/delete-course.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { AddTopicComponent } from './shared/components/edit/topic/add-topic/add-topic.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AddUsersComponent} from './shared/components/edit/add-users/add-users.component';
 
 
 @NgModule({
-  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent, TopOptionsComponent, LessonComponent, AddCourseComponent, UpdateCourseComponent, DeleteCourseComponent],
+  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent, TopOptionsComponent, LessonComponent, AddCourseComponent, UpdateCourseComponent, DeleteCourseComponent, AddTopicComponent, AddUsersComponent, AddUsersComponent],
   imports: [
 
     CommonModule,
@@ -69,7 +73,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatInputModule,
     MatChipsModule,
     MatRadioModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [RouterModule, MatCardModule],
 

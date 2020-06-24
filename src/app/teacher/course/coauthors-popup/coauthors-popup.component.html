@@ -1,6 +1,8 @@
 <h2 mat-dialog-title>Соавторы курса</h2>
 <mat-dialog-content>
-  <!-- <mat-divider></mat-divider> -->
+
+  <app-add-users [targetEditUser]=typeUser></app-add-users>
+
   <table mat-table [dataSource]="dataSource" class="table-results">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Преподаватель</th>

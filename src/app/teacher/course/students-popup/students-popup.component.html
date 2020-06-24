@@ -1,5 +1,8 @@
 <h2 mat-dialog-title>Студенты курса</h2>
 <mat-dialog-content>
+
+  <app-add-users [targetEditUser]=typeUser></app-add-users>
+
   <table mat-table [dataSource]="dataSource" class="table-results">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Имя студента </th>
