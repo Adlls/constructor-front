@@ -1,41 +1,17 @@
-<form class="form-control">
-  <label>Email: </label> <br>
-  <input type="email"> <br>
-  <label>Password: </label> <br>
-  <input type="password"> <br>
-  <input type="submit">
-</form>
+  <mat-card class="">
+    <form>
+      <mat-label class="title-form">Зайдите</mat-label> <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Ваш email">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field> <br/>
+      <mat-form-field appearance="outline">
+        <mat-label>Пароль</mat-label>
+        <input matInput placeholder="Ваш пароль">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field> <br/>
 
-<p>
-  <mat-form-field appearance="legacy">
-    <mat-label>Legacy form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="standard">
-    <mat-label>Standard form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Fill form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="outline">
-    <mat-label>Outline form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
-  </mat-form-field>
-</p>
-
+      <button mat-stroked-button type="submit">Зайти</button>
+    </form>
+  </mat-card>
