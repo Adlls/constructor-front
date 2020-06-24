@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Добавить курс</h2>
+<mat-dialog-content>
+  <form class="top-options-forms">
+    <mat-form-field>
+      <mat-label>Название</mat-label>
+      <input matInput>
+    </mat-form-field> <br/>
+    <mat-form-field>
+      <mat-label>Описание</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field> <br/>
+    <mat-form-field>
+      <mat-label>Тип доступа</mat-label>
+      <mat-select [(value)]="defaultAccessType">
+        <mat-option value="option1">Публичный</mat-option>
+        <mat-option value="option2">Приватный</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let skill of skills" [selectable]="selectable"
+                  [removable]="removable" (removed)="remove(skill)">
+          {{skill.skill}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Навыки"
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="add($event)">
+      </mat-chip-list>
+    </mat-form-field>
+
+
+    <button mat-stroked-button type="submit">Создать</button>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <!--
+  <button mat-button mat-dialog-close>Отмена</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Добавить</button>
+  -->
+</mat-dialog-actions>

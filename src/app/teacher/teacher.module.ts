@@ -24,38 +24,53 @@ import { StudentsPopupComponent } from './course/students-popup/students-popup.c
 import { TopOptionsComponent } from './shared/components/top-options/top-options.component';
 import { LessonComponent } from './lesson/lesson.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { AddCourseComponent } from './edit/course/add-course/add-course.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatChipsModule} from '@angular/material/chips';
+import { UpdateCourseComponent } from './edit/course/update-course/update-course.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { DeleteCourseComponent } from './edit/course/delete-course/delete-course.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
-  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent, TopOptionsComponent, LessonComponent],
-    imports: [
+  declarations: [TeacherLayoutComponent, DashboardPageComponent, CoursesComponent, ProgressStudentsComponent, CourseComponent, TopicComponent, CoauthorsPopupComponent, StudentsPopupComponent, TopOptionsComponent, LessonComponent, AddCourseComponent, UpdateCourseComponent, DeleteCourseComponent],
+  imports: [
 
-        CommonModule,
-        RouterModule.forChild([
-            {
-                path: '', component: TeacherLayoutComponent, children: [
-                    {path: 'courses', component: CoursesComponent},
-                    {path: 'courses/:idCourse', component: CourseComponent},
-                    {path: 'courses/:idCourse/:idTopic', component: TopicComponent},
-                    {path: 'courses/:idCourse/:idTopic/:idLesson', component: LessonComponent},
-                    {path: 'progress', component: ProgressStudentsComponent}
-                ]
-            }
-        ]),
-        MatCardModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        MatMenuModule,
-        MatIconModule,
-        MatListModule,
-        MatTreeModule,
-        MatButtonModule,
-        MatProgressBarModule,
-        MatTableModule,
-        MatExpansionModule,
-        MatDialogModule,
-        MatTabsModule
-    ],
+    CommonModule,
+    RouterModule.forChild([
+      {
+        path: '', component: TeacherLayoutComponent, children: [
+          {path: 'courses', component: CoursesComponent},
+          {path: 'courses/:idCourse', component: CourseComponent},
+          {path: 'courses/:idCourse/:idTopic', component: TopicComponent},
+          {path: 'courses/:idCourse/:idTopic/:idLesson', component: LessonComponent},
+          {path: 'progress', component: ProgressStudentsComponent}
+        ]
+      }
+    ]),
+    MatCardModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatIconModule,
+    MatListModule,
+    MatTreeModule,
+    MatButtonModule,
+    MatProgressBarModule,
+    MatTableModule,
+    MatExpansionModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatChipsModule,
+    MatRadioModule,
+    MatCheckboxModule
+  ],
   exports: [RouterModule, MatCardModule],
 
 })
