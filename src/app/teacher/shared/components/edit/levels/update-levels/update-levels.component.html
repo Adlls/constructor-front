@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Обновить уровни</h2>
+<mat-dialog-content>
+  <form class="top-options-forms">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup" class="level">
+        <ng-template matStepLabel>уровень</ng-template>
+        <quill-editor class="editor-level"></quill-editor>
+        <mat-slide-toggle class="level-on">Включить уровень</mat-slide-toggle>
+        <div class="options-level">
+          <button mat-stroked-button matStepperNext color="primary">Следующий уровень</button>
+        </div>
+      </mat-step>
+
+      <mat-step [stepControl]="secondFormGroup">
+        <ng-template matStepLabel>уровень</ng-template>
+        <quill-editor class="editor-level"></quill-editor>
+        <mat-slide-toggle class="level-on">Включить уровень</mat-slide-toggle>
+        <div class="options-level">
+          <button mat-stroked-button matStepperPrevious color="primary">Предыдущий уровень</button>
+          <button mat-stroked-button matStepperNext color="primary">Следующий уровень</button>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>уровень</ng-template>
+        <quill-editor class="editor-level"></quill-editor>
+        <mat-slide-toggle class="level-on">Включить уровень</mat-slide-toggle>
+        <div class="options-level">
+          <button mat-stroked-button matStepperPrevious color="primary">Предыдущий уровень</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+    <button mat-stroked-button type="submit" class="create-levels">Обновить</button>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+
+</mat-dialog-actions>

@@ -9,6 +9,9 @@ import {DeleteTopicComponent} from '../edit/topic/delete-topic/delete-topic.comp
 import {AddLessonComponent} from '../edit/lesson/add-lesson/add-lesson.component';
 import {UpdateLessonComponent} from '../edit/lesson/update-lesson/update-lesson.component';
 import {DeleteLessonComponent} from '../edit/lesson/delete-lesson/delete-lesson.component';
+import {AddLevelsComponent} from '../edit/levels/add-levels/add-levels.component';
+import {UpdateLevelsComponent} from '../edit/levels/update-levels/update-levels.component';
+import {DeleteLevelsComponent} from '../edit/levels/delete-levels/delete-levels.component';
 
 
 function openDialog(component: any, dialog: MatDialog) {
@@ -41,7 +44,9 @@ export class TopOptionsComponent implements OnInit {
       case "lesson":
         openDialog(AddLessonComponent, this.dialog);
         break;
-
+      case "levels":
+        openDialog(AddLevelsComponent, this.dialog);
+        break;
     }
   }
 
@@ -56,6 +61,9 @@ export class TopOptionsComponent implements OnInit {
       case "lesson":
         openDialog(UpdateLessonComponent, this.dialog);
         break;
+      case "levels":
+        openDialog(UpdateLevelsComponent, this.dialog);
+        break;
     }
   }
 
@@ -69,6 +77,9 @@ export class TopOptionsComponent implements OnInit {
         break;
       case "lesson":
         openDialog(DeleteLessonComponent, this.dialog);
+        break;
+      case "levels":
+        openDialog(DeleteLevelsComponent, this.dialog);
         break;
     }
   }

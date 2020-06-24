@@ -1,0 +1,24 @@
+mat-step {
+  margin-top: 50px;
+  button {
+    margin-left: 10px;
+  }
+}
+
+.editor-level {
+}
+
+.level-on {
+  margin-top: 20px;
+}
+.top-options-forms {
+  .options-level button {
+    margin-left: 20px;
+    &:nth-child(1) {
+      margin-left: 0;
+    }
+  }
+  .create-levels {
+
+  }
+}

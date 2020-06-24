@@ -42,6 +42,14 @@ import { DeleteTopicComponent } from './shared/components/edit/topic/delete-topi
 import { AddLessonComponent } from './shared/components/edit/lesson/add-lesson/add-lesson.component';
 import { UpdateLessonComponent } from './shared/components/edit/lesson/update-lesson/update-lesson.component';
 import { DeleteLessonComponent } from './shared/components/edit/lesson/delete-lesson/delete-lesson.component';
+import { AddLevelsComponent } from './shared/components/edit/levels/add-levels/add-levels.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {QuillModule} from 'ngx-quill';
+import {inspect} from 'util';
+import {style} from '@angular/animations';
+import { UpdateLevelsComponent } from './shared/components/edit/levels/update-levels/update-levels.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { DeleteLevelsComponent } from './shared/components/edit/levels/delete-levels/delete-levels.component';
 
 
 @NgModule({
@@ -66,10 +74,14 @@ import { DeleteLessonComponent } from './shared/components/edit/lesson/delete-le
     DeleteTopicComponent,
     AddLessonComponent,
     UpdateLessonComponent,
-    DeleteLessonComponent],
+    DeleteLessonComponent,
+    AddLevelsComponent,
+    UpdateLevelsComponent,
+    DeleteLevelsComponent],
   imports: [
 
     CommonModule,
+    QuillModule.forRoot(),
     RouterModule.forChild([
       {
         path: '', component: TeacherLayoutComponent, children: [
@@ -102,9 +114,11 @@ import { DeleteLessonComponent } from './shared/components/edit/lesson/delete-le
     MatCheckboxModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatStepperModule,
+    MatSlideToggleModule
   ],
-  exports: [RouterModule, MatCardModule],
+  exports: [RouterModule, MatCardModule, QuillModule],
 
 })
 export class TeacherModule {
