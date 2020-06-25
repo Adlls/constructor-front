@@ -30,7 +30,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatChipsModule} from '@angular/material/chips';
 import { UpdateCourseComponent } from './shared/components/edit/course/update-course/update-course.component';
-import {MatRadioModule} from '@angular/material/radio';
+import {MAT_RADIO_DEFAULT_OPTIONS, MatRadioModule} from '@angular/material/radio';
 import { DeleteCourseComponent } from './shared/components/edit/course/delete-course/delete-course.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { AddTopicComponent } from './shared/components/edit/topic/add-topic/add-topic.component';
@@ -123,7 +123,15 @@ import {CourseService} from './shared/services/course.service';
     MatSlideToggleModule
   ],
   exports: [RouterModule, MatCardModule, QuillModule],
-  providers: [AuthService, AuthGuard, CourseService]
+  providers: [
+    {
+      provide: MAT_RADIO_DEFAULT_OPTIONS,
+      useValue: { color: 'accent' },
+    },
+    AuthService,
+    AuthGuard,
+    CourseService,
+  ]
 
 })
 export class TeacherModule {

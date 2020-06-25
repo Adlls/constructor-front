@@ -37,6 +37,41 @@ export class CourseService {
       }).pipe();
     }
 
+    updateCourse(idCourse: string, bodyCourse: Course): Observable<any> {
+       let updateCourse = {
+         "title": bodyCourse.title,
+         "description": bodyCourse.description,
+         "contributors": [
+           {
+             "id": "string"
+           }
+         ],
+         "followers": [
+           {
+             "id": "5ee39c1dbb6cc361a2df2694"
+           }
+         ],
+         "keywords": [
+           "string"
+         ],
+         "skills": [
+           "string"
+         ],
+         "typeAccess": bodyCourse.typeAccess
+       };
+       this.findCourseById(idCourse).subscribe((res) => {
+         let course = res;
+         updateCourse.contributors = course.contributors;
+         updateCourse.followers = course.followers;
+         updateCourse.keywords = course.keywords;
+       });
+      return this.http.put(`${environment.host}/course/${idCourse}`, updateCourse).pipe();
+    }
+
+    findCourseById(idCourse: string): Observable<any> {
+      return this.http.get(`${environment.host}/course/${idCourse}`).pipe()
+    }
+
     findAllCourses(): Observable<any> {
       return this.http.get(`${environment.host}/courses?page=0`).pipe();
     }

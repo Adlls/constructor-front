@@ -13,5 +13,6 @@ export interface Course {
   title: string,
   description: string,
   typeAccess: string,
+  author?: string,
   skills: string[]
 }

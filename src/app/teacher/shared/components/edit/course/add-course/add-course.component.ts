@@ -36,12 +36,12 @@ export class AddCourseComponent implements OnInit {
   }
 
   addCourse() {
-    console.log("added");
     const course: Course = {
       title: this.form.value.title,
       description: this.form.value.description,
       typeAccess: this.form.value.typeAccess,
-      skills: this.form.value.skills
+      skills: this.form.value.skills,
+      author: "5ee39c1dbb6cc361a2df2694"
     };
     console.log(this.form.value.typeAccess);
     this.courseService.createCourse(course).subscribe(() => {

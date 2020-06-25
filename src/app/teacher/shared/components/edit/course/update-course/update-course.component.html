@@ -2,39 +2,51 @@
 <mat-dialog-content>
 
   <div class="options-update" [ngStyle]="{display: showOptionsCourse ? 'block' : 'none'}">
-    <mat-radio-group aria-label="Выберите курс">
-      <mat-radio-button value="1">Стек протоколов TCP/IP</mat-radio-button> <br/>
-      <mat-radio-button value="2">Что то еще</mat-radio-button>
-    </mat-radio-group> <br/>
-    <button mat-stroked-button (click)="goToUpdate()">Перейти</button>
+    <form [formGroup]="formChoiceOpt" (ngSubmit)="goToUpdate()">
+      <mat-radio-group aria-label="Выберите курс" color="primary">
+        <div  *ngFor="let course of courses">
+          <mat-radio-button
+            formControlName="course_item"
+            ngDefaultControl
+            value="{{course.id}}">
+            {{course.title}}</mat-radio-button> <br/>
+        </div>
+      </mat-radio-group> <br>
+      <button mat-stroked-button>Перейти</button>
+    </form>
   </div>
 
 
-  <form class="top-options-forms" [ngStyle]="{display: showOptionsCourse ? 'none' : 'block'}">
-    <button mat-stroked-button type="button" (click)="backToOptions()"><mat-icon>keyboard_backspace</mat-icon></button> <br/>
+  <form class="top-options-forms"
+        (ngSubmit)="updateCourse()" [formGroup]="formUpdateCourse"
+        [ngStyle]="{display: showOptionsCourse ? 'none' : 'block'}" *ngIf="isChoice">
+
+    <button mat-stroked-button type="button" (click)="backToOptions()" class="back"><mat-icon>keyboard_backspace</mat-icon></button> <br/>
     <mat-form-field>
       <mat-label>Название</mat-label>
-      <input matInput>
+      <input matInput formControlName="title" value="current_course.title">
     </mat-form-field> <br/>
+
     <mat-form-field>
       <mat-label>Описание</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput formControlName="description" ></textarea>
     </mat-form-field> <br/>
     <mat-form-field>
       <mat-label>Тип доступа</mat-label>
-      <mat-select [(value)]="defaultAccessType">
-        <mat-option value="option1">Публичный</mat-option>
-        <mat-option value="option2">Приватный</mat-option>
+      <mat-select value="" formControlName="typeAccess">
+        <mat-option value="PUBLIC">Публичный</mat-option>
+        <mat-option value="PRIVATE">Приватный</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field class="example-chip-list">
-      <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip-list #chipList aria-label="Skills selection">
         <mat-chip *ngFor="let skill of skills" [selectable]="selectable"
                   [removable]="removable" (removed)="remove(skill)">
           {{skill.skill}}
           <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
         </mat-chip>
         <input placeholder="Навыки"
+               formControlName="skills"
                [matChipInputFor]="chipList"
                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                [matChipInputAddOnBlur]="addOnBlur"
