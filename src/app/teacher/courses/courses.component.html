@@ -1,7 +1,28 @@
 <app-top-options
   [targetEdit] = targetEditType
 ></app-top-options>
+
 <section class="courses-cards">
+
+  <mat-card *ngFor="let course of courses">
+    <h3>{{course.title}}</h3>
+    <p>{{course.description}}</p>
+    <div class="count-students">
+      <span>
+        {{course.followers.length}}
+      </span>
+      <mat-icon>person_outline</mat-icon>
+    </div>
+    <div class="type-access">
+      <mat-icon *ngIf="course.typeAccess === 'PRIVATE'">lock</mat-icon>
+      <mat-icon *ngIf="course.typeAccess == 'PUBLIC'">lock_open</mat-icon>
+    </div>
+    <div class="progress-course">
+      <span>40/100</span>
+      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    </div>
+  </mat-card>
+  <!--
   <mat-card [routerLink]="['/teacher/courses', 1]">
     <h3>Стек протоколов TCP/IP</h3>
     <p>В данном курсе рассматриваются протоколы стека TCP/IP...</p>
@@ -64,7 +85,6 @@
       <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
     </div>
   </mat-card>
-
-
+-->
 </section>
 

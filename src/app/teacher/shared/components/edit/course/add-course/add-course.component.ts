@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {MatChipInputEvent} from '@angular/material/chips';
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Course} from '../../../../../../shared/interfaces/interfaces';
+import {CourseService} from '../../../../services/course.service';
 
 export interface Skill {
   skill: string;
@@ -13,9 +16,40 @@ export interface Skill {
 })
 export class AddCourseComponent implements OnInit {
   defaultAccessType = 'Приватный';
-  constructor() {
+  form: FormGroup;
+  constructor(private courseService: CourseService) {
   }
   ngOnInit(): void {
+    this.form = new FormGroup({
+      title: new FormControl(null, [
+        Validators.required
+      ]),
+      description: new FormControl(null, [
+        Validators.required
+      ]),
+      typeAccess: new FormControl(null, [
+        Validators.required
+      ]),
+      skills: new FormControl(null, [
+      ]),
+    })
+  }
+
+  addCourse() {
+    console.log("added");
+    const course: Course = {
+      title: this.form.value.title,
+      description: this.form.value.description,
+      typeAccess: this.form.value.typeAccess,
+      skills: this.form.value.skills
+    };
+    console.log(this.form.value.typeAccess);
+    this.courseService.createCourse(course).subscribe(() => {
+      this.form.reset();
+      window.location.reload();
+    });
+
+
   }
 
   visible = true;
@@ -42,9 +76,8 @@ export class AddCourseComponent implements OnInit {
     }
   }
 
-  remove(fruit: Skill): void {
-    const index = this.skills.indexOf(fruit);
-
+  remove(skill: Skill): void {
+    const index = this.skills.indexOf(skill);
     if (index >= 0) {
       this.skills.splice(index, 1);
     }

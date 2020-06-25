@@ -53,6 +53,7 @@ import { DeleteLevelsComponent } from './shared/components/edit/levels/delete-le
 import {AuthService} from '../auth/shared/services/auth.service';
 import {AuthGuard} from '../auth/shared/services/auth.guard';
 import {A} from '@angular/cdk/keycodes';
+import {CourseService} from './shared/services/course.service';
 
 
 @NgModule({
@@ -122,7 +123,7 @@ import {A} from '@angular/cdk/keycodes';
     MatSlideToggleModule
   ],
   exports: [RouterModule, MatCardModule, QuillModule],
-  providers: [AuthService, AuthGuard]
+  providers: [AuthService, AuthGuard, CourseService]
 
 })
 export class TeacherModule {
