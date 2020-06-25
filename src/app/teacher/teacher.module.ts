@@ -50,6 +50,9 @@ import {style} from '@angular/animations';
 import { UpdateLevelsComponent } from './shared/components/edit/levels/update-levels/update-levels.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { DeleteLevelsComponent } from './shared/components/edit/levels/delete-levels/delete-levels.component';
+import {AuthService} from '../auth/shared/services/auth.service';
+import {AuthGuard} from '../auth/shared/services/auth.guard';
+import {A} from '@angular/cdk/keycodes';
 
 
 @NgModule({
@@ -84,12 +87,12 @@ import { DeleteLevelsComponent } from './shared/components/edit/levels/delete-le
     QuillModule.forRoot(),
     RouterModule.forChild([
       {
-        path: '', component: TeacherLayoutComponent, children: [
-          {path: 'courses', component: CoursesComponent},
-          {path: 'courses/:idCourse', component: CourseComponent},
-          {path: 'courses/:idCourse/:idTopic', component: TopicComponent},
-          {path: 'courses/:idCourse/:idTopic/:idLesson', component: LessonComponent},
-          {path: 'progress', component: ProgressStudentsComponent}
+        path: '', component: TeacherLayoutComponent, canActivate: [AuthGuard], children: [
+          {path: 'courses', component: CoursesComponent, canActivate: [AuthGuard]},
+          {path: 'courses/:idCourse', component: CourseComponent, canActivate: [AuthGuard]},
+          {path: 'courses/:idCourse/:idTopic', component: TopicComponent, canActivate: [AuthGuard]},
+          {path: 'courses/:idCourse/:idTopic/:idLesson', component: LessonComponent, canActivate: [AuthGuard]},
+          {path: 'progress', component: ProgressStudentsComponent, canActivate: [AuthGuard]}
         ]
       }
     ]),
@@ -119,6 +122,7 @@ import { DeleteLevelsComponent } from './shared/components/edit/levels/delete-le
     MatSlideToggleModule
   ],
   exports: [RouterModule, MatCardModule, QuillModule],
+  providers: [AuthService, AuthGuard]
 
 })
 export class TeacherModule {

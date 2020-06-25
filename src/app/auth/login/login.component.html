@@ -1,17 +1,23 @@
   <mat-card class="">
-    <form>
+    <form [formGroup]="form" (ngSubmit)="submit()">
       <mat-label class="title-form">Зайдите</mat-label> <br>
+      <mat-hint *ngIf="auth.error$ | async as error" style="color: #dc3545">{{error}}<br/></mat-hint>
+      <mat-hint *ngIf="deniedMessage" style="color: #dc3545">{{deniedMessage}}<br/></mat-hint>
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input matInput placeholder="Ваш email">
+        <input matInput placeholder="Ваш email" id="email" formControlName="email" required>
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+
       </mat-form-field> <br/>
       <mat-form-field appearance="outline">
         <mat-label>Пароль</mat-label>
-        <input matInput placeholder="Ваш пароль">
+        <input matInput placeholder="Ваш пароль" id="password"
+               formControlName="password" required
+               [type]="hidePass ? 'password' : 'text'"
+        >
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field> <br/>
 
-      <button mat-stroked-button type="submit">Зайти</button>
+      <button mat-stroked-button type="submit" color="primary" [disabled]="form.invalid">Зайти</button>
     </form>
   </mat-card>

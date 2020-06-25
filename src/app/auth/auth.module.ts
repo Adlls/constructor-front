@@ -5,10 +5,13 @@ import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
+import {AuthService} from './shared/services/auth.service';
+import {SharedModule} from '../shared/shared.module';
+import {AuthGuard} from './shared/services/auth.guard';
 
 
 @NgModule({
@@ -16,6 +19,8 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild([
       {path: 'login', component: LoginComponent},
       {path: 'singup', component: SingupComponent}
@@ -29,7 +34,7 @@ import {MatCardModule} from '@angular/material/card';
   exports: [
     RouterModule
   ],
-  providers: []
+  providers: [AuthService, AuthGuard]
 })
 export class AuthModule {
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../../../auth/shared/services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-teacher-layout',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
+
+  logout() {
+    this.auth.logout();
+
+
+  }
 
   ngOnInit(): void {
   }
-
 }
