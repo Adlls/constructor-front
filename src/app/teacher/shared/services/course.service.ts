@@ -72,6 +72,10 @@ export class CourseService {
       return this.http.get(`${environment.host}/course/${idCourse}`).pipe()
     }
 
+    deleteCourse(idCourse: string): Observable<any> {
+      return this.http.delete(`${environment.host}/course/${idCourse}`);
+    }
+
     findAllCourses(): Observable<any> {
       return this.http.get(`${environment.host}/courses?page=0`).pipe();
     }

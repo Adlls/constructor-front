@@ -92,7 +92,9 @@ export class UpdateCourseComponent implements OnInit, OnDestroy {
       author: "5ee39c1dbb6cc361a2df2694"
     };
     console.log(course.title);
-   this.updateCourseSub = this.courseService.updateCourse(this.current_id, course).subscribe();
+   this.updateCourseSub = this.courseService.updateCourse(this.current_id, course).subscribe(() => {
+     window.location.reload();
+   });
 
   }
 

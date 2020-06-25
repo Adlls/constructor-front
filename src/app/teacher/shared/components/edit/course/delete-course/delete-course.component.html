@@ -1,8 +1,13 @@
 <h2 mat-dialog-title>Удалить курс</h2>
 <mat-dialog-content>
-  <form class="top-options-forms">
-    <mat-checkbox>Стек протоколов TCP/IP</mat-checkbox> <br/>
-    <mat-checkbox>Что то еще</mat-checkbox> <br/>
+  <form class="top-options-forms" [formGroup]="formDelete" (ngSubmit)="deleteCourses()">
+      <mat-radio-group aria-label="Выберите курс" color="primary">
+        <div *ngFor="let course of courses">
+          <mat-radio-button formControlName="course_item" value="{{course.id}}" ngDefaultControl>
+            {{course.title}}
+          </mat-radio-button> <br/>
+        </div>
+      </mat-radio-group>
     <button mat-stroked-button type="submit">Удалить</button>
   </form>
 </mat-dialog-content>
