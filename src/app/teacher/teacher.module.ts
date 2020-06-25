@@ -54,6 +54,7 @@ import {AuthService} from '../auth/shared/services/auth.service';
 import {AuthGuard} from '../auth/shared/services/auth.guard';
 import {A} from '@angular/cdk/keycodes';
 import {CourseService} from './shared/services/course.service';
+import {ProgressService} from './shared/services/progress.service';
 
 
 @NgModule({
@@ -131,6 +132,7 @@ import {CourseService} from './shared/services/course.service';
     AuthService,
     AuthGuard,
     CourseService,
+    ProgressService
   ]
 
 })

@@ -16,7 +16,6 @@ export class CoursesComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscribeCourse = this.course.findAllCourses().subscribe(courses => {
       this.courses = courses.content;
-      console.log(this.courses);
     })
   }
 

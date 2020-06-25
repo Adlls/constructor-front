@@ -1,35 +1,47 @@
 
 <section class="progress-courses">
-<mat-expansion-panel>
+<mat-expansion-panel *ngFor="let course of courses">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      Стек протоколов TCP/IP
+      {{course.title}}
     </mat-panel-title>
-    <mat-panel-description>
-      <!-- some info -->
-    </mat-panel-description>
   </mat-expansion-panel-header>
-
- <!-- <mat-divider></mat-divider> -->
-  <table mat-table [dataSource]="dataSource" class="table-results">
+  <table mat-table [dataSource]="students" class="table-results">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Имя студента </th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      <td mat-cell *matCellDef="let element ">
+        <div *ngIf="course.id == element.idCourse">
+          {{element.name}}
+        </div>
+      </td>
+
     </ng-container>
 
-    <ng-container matColumnDef="current_theme">
-      <th mat-header-cell *matHeaderCellDef> Текущая тема </th>
-      <td mat-cell *matCellDef="let element"> {{element.current_theme}} </td>
+    <ng-container matColumnDef="current_level">
+      <th mat-header-cell *matHeaderCellDef> Текущий уровень </th>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="course.id == element.idCourse">
+          {{element.current_level}}
+        </div>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="current_lesson">
       <th mat-header-cell *matHeaderCellDef> Текущее занятие </th>
-      <td mat-cell *matCellDef="let element"> {{element.current_lesson}} </td>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="course.id == element.idCourse">
+          {{element.current_lesson}}
+        </div>
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="progress">
       <th mat-header-cell *matHeaderCellDef> Общий результат </th>
-      <td mat-cell *matCellDef="let element"> {{element.progress}} </td>
+      <td mat-cell *matCellDef="let element">
+        <div *ngIf="course.id == element.idCourse">
+          {{element.progress}}
+        </div>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -37,40 +49,5 @@
   </table>
 </mat-expansion-panel>
 
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Основы интерне-программирования
-      </mat-panel-title>
-      <mat-panel-description>
-          <!-- some info -->
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-
-    <table mat-table [dataSource]="dataSource" class="table-results">
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Имя студента </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="current_theme">
-        <th mat-header-cell *matHeaderCellDef> Текущая тема </th>
-        <td mat-cell *matCellDef="let element"> {{element.current_theme}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="current_lesson">
-        <th mat-header-cell *matHeaderCellDef> Текущее занятие </th>
-        <td mat-cell *matCellDef="let element"> {{element.current_lesson}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="progress">
-        <th mat-header-cell *matHeaderCellDef> Общий результат </th>
-        <td mat-cell *matCellDef="let element"> {{element.progress}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </mat-expansion-panel>
 </section>
 

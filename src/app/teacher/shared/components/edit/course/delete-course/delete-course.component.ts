@@ -32,6 +32,4 @@ export class DeleteCourseComponent implements OnInit {
       window.location.reload();
     });
   }
-
-
 }

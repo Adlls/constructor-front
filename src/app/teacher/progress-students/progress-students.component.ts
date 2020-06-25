@@ -1,33 +1,80 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {CourseService} from '../shared/services/course.service';
+import {Course} from '../../shared/interfaces/interfaces';
+import {Subscription} from 'rxjs';
+import {ProgressService} from '../shared/services/progress.service';
+import {Student} from '../course/students-popup/students-popup.component';
 
 
-export interface PeriodicElement {
-  name: string;
-  progress: string;
-  current_theme: string;
-  current_lesson: string;
+
+export interface StudentsProgress {
+    idCourse: string,
+    name: string;
+    progress: string;
+    current_level: string;
+    current_lesson: string;
+
 }
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  { name: 'Иванов И. И.', current_theme: 'IP-адресса', current_lesson: 'классы адрессов', progress: '10/100'},
-  { name: 'Черноусов C. C.', current_theme: 'HTML', current_lesson: 'Теги', progress: '70/100'}
-];
-
-
 
 @Component({
   selector: 'app-progress-students',
   templateUrl: './progress-students.component.html',
   styleUrls: ['./progress-students.component.scss']
 })
-export class ProgressStudentsComponent implements OnInit {
- // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+export class ProgressStudentsComponent implements OnInit, OnDestroy {
   panelOpenState = false;
-  displayedColumns: string[] = ['name', 'current_theme','current_lesson', 'progress'];
-  dataSource = ELEMENT_DATA;
-  constructor() { }
+  students: Array<StudentsProgress> = [
+
+  ];
+  displayedColumns: string[] = ['name', 'current_lesson','current_level', 'progress'];
+  courses: Course[];
+  getAllCourse: Subscription;
+  getAllProgressByCourseId: Subscription;
+  constructor(private courseService: CourseService, private progressService: ProgressService) { }
 
   ngOnInit(): void {
+
+    this.getAllCourse = this.courseService.findAllCourses().subscribe((course_res) => {
+      for (let course of course_res.content) {
+        this.getAllProgressByCourseId =
+          this.progressService.getProgressByCourseId(course.id).subscribe((progress_res) => {
+            this.courses = course_res.content;
+
+            //console.log(progress_res[0]['lessonProgress'][0].lesson.id);
+            for (let progress of progress_res) {
+              let current_lesson: string = "";
+              let current_level: string = "";
+              const countLessons: number = progress_res[0]['lessonProgress'].length;
+              let completedLessons: number = 0;
+              for (let lessonProgress of progress_res[0]['lessonProgress']) {
+                if (lessonProgress.completed == false) {
+                  current_lesson = lessonProgress.lesson.id;
+                  current_level = lessonProgress.currentLevel;
+                }
+                  else {
+                    current_lesson = "все пройдено";
+                    completedLessons++;
+                  }
+                }
+              let student: StudentsProgress = {
+                idCourse: course.id,
+                name:  progress['student'].id,
+                progress: (countLessons == 0 ? "0%" : completedLessons/countLessons+"%"),
+                current_level: current_level,
+                current_lesson: current_lesson
+              };
+              this.students.push(student);
+            }
+          });
+      }
+
+    });
+
+
+  }
+
+  ngOnDestroy(): void {
+    this.getAllCourse.unsubscribe();
   }
 
 }
