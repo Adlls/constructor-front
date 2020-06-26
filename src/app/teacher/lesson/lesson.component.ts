@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import {TopicService} from '../shared/services/topic.service';
+import {Topic} from '../../shared/interfaces/interfaces';
 
 @Component({
   selector: 'app-lesson',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LessonComponent implements OnInit {
   targetEditType = "levels";
-  constructor() { }
+
+  constructor(private router: Router, private topicService: TopicService) {
+   // this.currentTopicId = this.router.url.split("/")[this.router.url.split("/").length - 1];
+  }
 
   ngOnInit(): void {
+    /*
+    this.topicService.findTopicById(this.currentTopicId).subscribe((topic_res) => {
+      this.currentTopicId = topic_res
+    })
+     */
   }
 
 }

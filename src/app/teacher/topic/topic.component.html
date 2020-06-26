@@ -1,7 +1,7 @@
 <app-top-options [targetEdit]=targetEditType ></app-top-options>
 <section class="info-topic wrapper">
  <mat-card>
-  <h2 class="title-topic">Title Topic</h2>
+  <h2 class="title-topic">{{currentTopic.title}}</h2>
   <p class="description-topic">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, provident.</p>
   <div class="param-topic">
     <ul>
@@ -15,9 +15,8 @@
 </section>
 
 <section class="lessons-cards wrapper cards-layout">
-  <mat-card [routerLink]="['/teacher/courses', 1, 1, 1]">
+  <mat-card *ngFor="let lesson of lessons" [routerLink]="['/teacher/courses', currentCourseId, currentTopicId, lesson.id]">
     <h3 class="lesson-title">Lesson title</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, earum.</p>
   </mat-card>
-  <mat-card>lesson 2</mat-card>
 </section>

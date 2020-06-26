@@ -2,23 +2,31 @@
 <mat-dialog-content>
 
   <div class="options-update" [ngStyle]="{display: showOptionsTopic ? 'block' : 'none'}">
-    <mat-radio-group aria-label="Выберите тему">
-      <mat-radio-button value="1">IP адресса</mat-radio-button> <br/>
-      <mat-radio-button value="2">Что то еще</mat-radio-button>
-    </mat-radio-group> <br/>
-    <button mat-stroked-button (click)="goToUpdate()">Перейти</button>
+    <form [formGroup]="formChoiceOpt" (ngSubmit)="goToUpdate()">
+      <mat-radio-group aria-label="Выберите курс" color="primary">
+        <div  *ngFor="let topic of topics">
+          <mat-radio-button
+            formControlName="course_item"
+            ngDefaultControl
+            value="{{topic.id}}">
+            {{topic.title}}</mat-radio-button> <br/>
+        </div>
+      </mat-radio-group> <br>
+      <button mat-stroked-button (click)="goToUpdate()">Перейти</button>
+    </form>
   </div>
 
-
-  <form class="top-options-forms" [ngStyle]="{display: showOptionsTopic ? 'none' : 'block'}">
+  <form class="top-options-forms"
+        (ngSubmit)="updateTopic()" [formGroup]="formUpdateTopic"
+        [ngStyle]="{display: showOptionsTopic ? 'none' : 'block'}" *ngIf="isChoice">
     <button mat-stroked-button type="button" (click)="backToOptions()"><mat-icon>keyboard_backspace</mat-icon></button> <br/>
     <mat-form-field>
       <mat-label>Название</mat-label>
-      <input matInput>
+      <input matInput formControlName="title">
     </mat-form-field> <br/>
     <mat-form-field>
       <mat-label>Описание</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput formControlName="description"></textarea>
     </mat-form-field> <br/>
 
     <button mat-stroked-button type="submit">Обновить</button>

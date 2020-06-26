@@ -33,7 +33,6 @@ export class ProgressStudentsComponent implements OnInit, OnDestroy {
   constructor(private courseService: CourseService, private progressService: ProgressService) { }
 
   ngOnInit(): void {
-
     this.getAllCourse = this.courseService.findAllCourses().subscribe((course_res) => {
       for (let course of course_res.content) {
         this.getAllProgressByCourseId =
@@ -67,14 +66,13 @@ export class ProgressStudentsComponent implements OnInit, OnDestroy {
             }
           });
       }
-
     });
-
 
   }
 
   ngOnDestroy(): void {
     this.getAllCourse.unsubscribe();
+    this.getAllProgressByCourseId.unsubscribe();
   }
 
 }

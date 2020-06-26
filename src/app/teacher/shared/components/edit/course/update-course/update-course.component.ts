@@ -76,7 +76,7 @@ export class UpdateCourseComponent implements OnInit, OnDestroy {
          ]),
          skills: new FormControl(this.current_course.skills, [
          ]),
-       })
+       });
       this.current_id = current_id;
       console.log(response.title + "title res");
       this.isChoice = true;

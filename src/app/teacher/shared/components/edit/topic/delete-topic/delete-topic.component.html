@@ -1,8 +1,13 @@
 <h2 mat-dialog-title>Удалить тему</h2>
 <mat-dialog-content>
-  <form class="top-options-forms">
-    <mat-checkbox>IP-адресса</mat-checkbox> <br/>
-    <mat-checkbox>Что то еще</mat-checkbox> <br/>
+  <form class="top-options-forms" [formGroup]="formDelete" (ngSubmit)="deleteCourses()">
+    <mat-radio-group aria-label="Выберите курс" color="primary">
+      <div *ngFor="let topic of topics">
+        <mat-radio-button formControlName="course_item" value="{{topic.id}}" ngDefaultControl>
+          {{topic.title}}
+        </mat-radio-button> <br/>
+      </div>
+    </mat-radio-group>
     <button mat-stroked-button type="submit">Удалить</button>
   </form>
 </mat-dialog-content>

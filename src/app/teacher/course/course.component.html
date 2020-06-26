@@ -4,23 +4,21 @@
 
 </app-top-options>
 <mat-card class="info-course wrapper">
-  <h3 class="title-course">Стек потоколов TCP/IP</h3>
-  <p class="description-course">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    Accusantium aut beatae debitis dolores, enim error ex exercitationem explicabo facilis
-    fugiat ipsa iusto libero modi nam neque qui quisquam, tenetur voluptatum.</p>
+  <h3 class="title-course">{{current_course.title}}</h3>
+  <p class="description-course">{{current_course.description}}</p>
   <div class="param-course">
     <ul>
       <li>
         <strong>Доступ:</strong>
-        <span>Публичный</span>
+        <span>{{current_course.typeAccess}}</span>
       </li>
       <li>
         <strong> Количество подписанных студентов:</strong>
-        <span>5</span>
+        <span>{{current_course.followers.length}}</span>
       </li>
       <li>
         <strong>Автор курса:</strong>
-        <span>Вы</span>
+        <span>{{current_course.author.firstName}}</span>
       </li>
     </ul>
   </div>
@@ -32,19 +30,15 @@
   </div>
 
 <section class="topics-cards wrapper">
-  <mat-card [routerLink]="['/teacher/courses', 1, 1]">
-    <h3>IP-адресса</h3>
+  <mat-card *ngFor="let topic of topics" [routerLink]="['/teacher/courses', currentCourseId, topic.id]">
+    <h3>{{topic.title}}</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, sed!</p>
     <div class="small-info-topic">
       <div class="author-topic">
         <strong>Автор темы:</strong>
-        <span>Петров</span>
+        <span>{{topic.author}}</span>
       </div>
     </div>
-
-  </mat-card>
-  <mat-card>
-    2 тема
   </mat-card>
 </section>
 

@@ -1,8 +1,11 @@
 <h2 mat-dialog-title>Удалить занятие</h2>
 <mat-dialog-content>
-  <form class="top-options-forms">
-    <mat-checkbox>Lesson title</mat-checkbox> <br/>
-    <mat-checkbox>Что то еще</mat-checkbox> <br/>
+  <form class="top-options-forms" [formGroup]="formDelete" (ngSubmit)="deleteLesson()">
+    <div *ngFor="let lesson of lessons">
+      <mat-radio-button formControlName="lesson_item" value="{{lesson.id}}" ngDefaultControl>
+        {{lesson.title}}
+      </mat-radio-button> <br/>
+    </div>
     <button mat-stroked-button type="submit">Удалить</button>
   </form>
 </mat-dialog-content>

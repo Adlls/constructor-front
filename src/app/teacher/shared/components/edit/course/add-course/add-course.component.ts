@@ -43,7 +43,7 @@ export class AddCourseComponent implements OnInit {
       skills: this.form.value.skills,
       author: "5ee39c1dbb6cc361a2df2694"
     };
-    console.log(this.form.value.typeAccess);
+
     this.courseService.createCourse(course).subscribe(() => {
       this.form.reset();
       window.location.reload();
