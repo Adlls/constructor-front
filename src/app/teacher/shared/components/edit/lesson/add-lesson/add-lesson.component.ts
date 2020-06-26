@@ -16,7 +16,6 @@ export class AddLessonComponent implements OnInit {
   currentTopicId: string;
   constructor(private lessonService: LessonService, private router: Router) {
     this.currentTopicId = this.router.url.split("/")[this.router.url.split("/").length - 1];
-
   }
 
   ngOnInit(): void {
@@ -30,19 +29,30 @@ export class AddLessonComponent implements OnInit {
   }
 
   addLesson() {
-    const lesson: Lesson = {
-      title: this.form.value.title,
-      description: this.form.value.description,
-      topic: {
-          id: this.currentTopicId
+   // console.log(this.currentTopicId.trim());
+    const lesson = {
+      "author": {
+        "id": "5ee39c1dbb6cc361a2df2694"
       },
-      author: {
-        id: "5ee39c1dbb6cc361a2df2694"
+      "topic": {
+        "id": this.currentTopicId
+      },
+      "relations": {
+        "refLessons": [
+          {
+            "IdLesson": "string",
+            "idLesson": "string",
+            "typeRelation": "EXTENDED"
+          }
+        ]
+      },
+      "levels": {
+        "id": "string"
       }
     };
 
     this.lessonService.createLesson(lesson).subscribe(() => {
-      window.location.reload();
+     // window.location.reload();
     });
 
   }

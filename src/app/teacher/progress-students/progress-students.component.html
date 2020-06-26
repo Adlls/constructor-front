@@ -6,13 +6,29 @@
       {{course.title}}
     </mat-panel-title>
   </mat-expansion-panel-header>
+  <table>
+    <tr>
+      <th>Имя студента</th>
+      <th>Текущий уровень</th>
+      <th>Текущее занятие</th>
+      <th>Общий результат</th>
+    </tr>
+      <tr *ngFor="let student of students">
+        <td *ngIf="student.idCourse == course.id">{{student.name}}</td>
+        <td *ngIf="student.idCourse == course.id">{{student.current_level}}</td>
+        <td *ngIf="student.idCourse == course.id">{{student.current_lesson}}</td>
+        <td *ngIf="student.idCourse == course.id">{{student.progress}}</td>
+      </tr>
+
+  </table>
+  <!--
   <table mat-table [dataSource]="students" class="table-results">
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef> Имя студента </th>
       <td mat-cell *matCellDef="let element ">
-        <div *ngIf="course.id == element.idCourse">
+        {{element.idCourse}} <<< idCourse
           {{element.name}}
-        </div>
+
       </td>
 
     </ng-container>
@@ -20,9 +36,9 @@
     <ng-container matColumnDef="current_level">
       <th mat-header-cell *matHeaderCellDef> Текущий уровень </th>
       <td mat-cell *matCellDef="let element">
-        <div *ngIf="course.id == element.idCourse">
+       <div *ngIf="course.id == element.idCourse">
           {{element.current_level}}
-        </div>
+       </div>
       </td>
     </ng-container>
 
@@ -47,6 +63,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  -->
 </mat-expansion-panel>
 
 </section>

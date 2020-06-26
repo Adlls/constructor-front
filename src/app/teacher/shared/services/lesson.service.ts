@@ -16,7 +16,8 @@ export class LessonService {
     return this.http.get(`${environment.host}/lesson/${idLesson}`).pipe();
   }
 
-  createLesson(lesson: Lesson): Observable<any> {
+  createLesson(lesson: any): Observable<any> {
+    console.log(lesson.topic.id);
     return this.http.post(`${environment.host}/lesson`, lesson).pipe();
   }
 

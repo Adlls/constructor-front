@@ -64,12 +64,12 @@ export class UpdateLevelsComponent implements OnInit {
         },
         {
           "enabled": true,
-          "htmlBody": this.formLevels.value.bodyLevel1+"",
+          "htmlBody": this.formLevels.value.bodyLevel2+"",
           "numLevel": 2
         },
         {
           "enabled": true,
-          "htmlBody": this.formLevels.value.bodyLevel1+"",
+          "htmlBody": this.formLevels.value.bodyLevel3+"",
           "numLevel": 3
         }
       ]
@@ -78,5 +78,4 @@ export class UpdateLevelsComponent implements OnInit {
       window.location.reload();
     })
   }
-
 }

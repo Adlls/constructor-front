@@ -20,7 +20,7 @@
   <mat-tab-group>
     <div *ngFor="let level of currentLesson.levels.bodyLevels let i = index">
       <mat-tab label="{{i + 1}} уровень">
-        <div class="bodyLevel">
+        <div class="bodyLevel" [innerHTML]="level.htmlBody">
           {{level.htmlBody}}
         </div>
       </mat-tab>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {Lesson, Topic} from '../../shared/interfaces/interfaces';
 import {LessonService} from '../shared/services/lesson.service';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-lesson',
@@ -12,8 +13,10 @@ export class LessonComponent implements OnInit {
   targetEditType = "levels";
   currentLessonId: string;
   currentLesson: Lesson;
-  constructor(private router: Router, private lessonService: LessonService) {
+  constructor(private router: Router, private lessonService: LessonService, private sanitizer: DomSanitizer) {
     this.currentLessonId = this.router.url.split("/")[this.router.url.split("/").length - 1];
+
+
   }
 
   ngOnInit(): void {

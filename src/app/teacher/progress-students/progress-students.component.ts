@@ -23,46 +23,46 @@ export interface StudentsProgress {
 })
 export class ProgressStudentsComponent implements OnInit, OnDestroy {
   panelOpenState = false;
-  students: Array<StudentsProgress> = [
-
-  ];
+  students: StudentsProgress[] = [];
   displayedColumns: string[] = ['name', 'current_lesson','current_level', 'progress'];
   courses: Course[];
   getAllCourse: Subscription;
   getAllProgressByCourseId: Subscription;
-  constructor(private courseService: CourseService, private progressService: ProgressService) { }
+  constructor(private courseService: CourseService, private progressService: ProgressService) {
+
+  }
 
   ngOnInit(): void {
     this.getAllCourse = this.courseService.findAllCourses().subscribe((course_res) => {
+
       for (let course of course_res.content) {
         this.getAllProgressByCourseId =
           this.progressService.getProgressByCourseId(course.id).subscribe((progress_res) => {
             this.courses = course_res.content;
-
-            //console.log(progress_res[0]['lessonProgress'][0].lesson.id);
             for (let progress of progress_res) {
+              //смотрим для одного студента
               let current_lesson: string = "";
               let current_level: string = "";
-              const countLessons: number = progress_res[0]['lessonProgress'].length;
+              const countLessons: number = progress['lessonProgress'].length;
               let completedLessons: number = 0;
-              for (let lessonProgress of progress_res[0]['lessonProgress']) {
+              for (let lessonProgress of progress['lessonProgress']) {
                 if (lessonProgress.completed == false) {
                   current_lesson = lessonProgress.lesson.id;
                   current_level = lessonProgress.currentLevel;
+                } else {
+                  current_lesson = "все пройдено";
+                  completedLessons++;
                 }
-                  else {
-                    current_lesson = "все пройдено";
-                    completedLessons++;
-                  }
-                }
+              }
               let student: StudentsProgress = {
                 idCourse: course.id,
-                name:  progress['student'].id,
-                progress: (countLessons == 0 ? "0%" : completedLessons/countLessons+"%"),
+                name: progress['student'].id,
+                progress: countLessons == 0 ? "0%" : completedLessons/countLessons+"%",
                 current_level: current_level,
                 current_lesson: current_lesson
               };
               this.students.push(student);
+
             }
           });
       }
