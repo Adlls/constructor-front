@@ -57,6 +57,7 @@ import {CourseService} from './shared/services/course.service';
 import {ProgressService} from './shared/services/progress.service';
 import {TopicService} from './shared/services/topic.service';
 import {LessonService} from './shared/services/lesson.service';
+import {LevelsService} from './shared/services/levels.service';
 
 
 @NgModule({
@@ -136,7 +137,8 @@ import {LessonService} from './shared/services/lesson.service';
     CourseService,
     ProgressService,
     TopicService,
-    LessonService
+    LessonService,
+    LevelsService
   ]
 
 })

@@ -12,6 +12,10 @@ export class LessonService {
     return this.http.get(`${environment.host}/lessons?page=0`).pipe();
   }
 
+  findLessonById(idLesson): Observable<any> {
+    return this.http.get(`${environment.host}/lesson/${idLesson}`).pipe();
+  }
+
   createLesson(lesson: Lesson): Observable<any> {
     return this.http.post(`${environment.host}/lesson`, lesson).pipe();
   }

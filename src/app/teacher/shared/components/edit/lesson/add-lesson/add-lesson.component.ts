@@ -42,7 +42,6 @@ export class AddLessonComponent implements OnInit {
     };
 
     this.lessonService.createLesson(lesson).subscribe(() => {
-      //this.form.reset();
       window.location.reload();
     });
 
